@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<title>Add Menu Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-md-4">
+					<a href="{{url_for('welcome')}}">
+					<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-8"><h2><a href="{{url_for('welcome')}}">Back to List of Users</a></h2></div>
+				<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+			</div>	
+			<div class = "row"><hr></div>
+			<div class= " row main_section">
+				{% with messages = get_flashed_messages() %}
+				{% if messages  %}
+				{% for message in messages%}
+				{{message}}
+				{% endfor %}
+				{% endif %}
+				{% endwith %}
+				<h2>Add new user below: </h2>
+				<div class = "spacer"></div>
+				<div class = "col-md-2"></div>
+				<div class = "col-md-8">
+					<form method = 'POST' action = "{{url_for('addUser')}}">
+						User Name: <input type = "text" size="30" name = "name"><br>
+						User Email: <input type = "text" size="30" name = "email"><br>
+						<br>
+						<input type = "submit" value = "Submit!!">
+					</form>
+				</div>
+				<div class = "col-md-2"></div><br>
+				<div class = "spacer"><a href="{{url_for('welcome')}}">Cancel</a></div>
+			</div>	
+		</div> <!--end of container-->
+	</body>
+</html>
+
+
+

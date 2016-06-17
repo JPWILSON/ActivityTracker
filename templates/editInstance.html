@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<title>Add Menu Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+					<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6"><h1>Activity Log</h1></div>
+			</div>	
+			<div class = "row"><hr></div>
+			<div class= " row main_section">
+				<h2>{{name}}: &nbsp Edit your activity below :)</h2>
+				<div class = "spacer"></div>
+				<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				<div class = "col-md-2"></div>
+				<div class = "col-md-8">
+					<form method = 'POST' action = "{{url_for('editActivityInstance', user_id = user_id, instance_id=instance_id)}}">
+						<select name = 'act'>
+							<b>Activity:</b><br>
+							{% for a in al %}
+							<option value = "{{a}}">{{a.name}}</option>
+							{%endfor%}
+						</select> &nbsp
+						<select name='subact'>
+							<b>Subactivity:</b><br>
+							{% for s in sal %}
+							<option value = "{{s}}">{{s}}</option>
+							{%endfor%}
+						</select><br>
+						Date: <input type = "text" size="30" name = "date" placeholder= "{{event2Edit.date}}"><br>
+						Location: <input type = "text" size="30" name = "location" placeholder= "{{event2Edit.location}}"><br>
+						Description: <input type = "text" size="60" name = "description" placeholder= "{{event2Edit.description}}"><br>
+						<input type = "submit" value = "Submit!!">
+					</form>
+				</div>
+				<div class = "col-md-2"></div><br>
+				<div class = "spacer"><a href="#">Cancel</a></div>
+			</div>	
+		</div> <!--end of container-->
+	</body>
+</html>

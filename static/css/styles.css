@@ -1,0 +1,21 @@
+.main_section{
+	background-color: #e6ffe6;
+	font-size: 20px;
+}
+
+.large_heading{
+	font-family: copperplate;
+	font-size: 65px;
+}
+
+.heading{
+	font-size: 35px;
+}
+
+.linkSize{
+	font-size: 20px;
+}
+
+.spacer{
+	height: 30px;
+}

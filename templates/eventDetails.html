@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv= "X-UA-Compatible" content= "IE-Edge">
+		<meta name = "viewport" content= "width=devicewidth, initial-scale=1">
+		<title>Restaurant List</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class= "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+						<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1 class= "text-right large_heading"><a href="{{url_for('homepage',user_id = user_id)}}">{{name}}</a></h1>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+			<div class = "row main_section">
+				<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				<div class = "col-md-12">
+					<table class="text-left">
+						<tr>
+							<th>Date</th>
+							<th>Activity</th>
+							<th>Subactivity</th>
+							<th>Description</th>
+							<th>Location</th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<td width="10%">{{instObj.date}}</td>
+							<td width="8%">{{act}}</td>
+							<td width="12%">{{subact}}</td>
+							<td width="42%">{{instObj.description}}</td>
+							<td width="16%">{{instObj.location}}</td>
+							<td width="6%"><a href="{{url_for('editActivityInstance', instance_id = instObj.id, user_id = user_id)}}">&nbspEdit&nbsp</a></td>
+							<td width="6%"><a href="{{url_for('deleteActivityInstance', instance_id = instObj.id, user_id = user_id)}}">&nbspDelete&nbsp</a></td>
+						</tr>
+					</table>
+					<div class = "row"><hr></div>
+					<div class = "row text-center">
+							<h3><a href="{{url_for('homepage',user_id = user_id)}}">Back to {{name}}'s Event's</a></h3>
+					</div>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+		</div> <!-- container-->
+	</body>
+</html>

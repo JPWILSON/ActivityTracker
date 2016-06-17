@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge">
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<title>Add Menu Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+					<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6"><h1>Activity List</h1></div>
+			</div>	
+			<div class = "row"><hr></div>
+			<div class= " row main_section">
+				<h2>Add Activity</h2>
+				<div class = "spacer"></div>
+				<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				<div class = "col-md-2"></div>
+				<div class = "col-md-8">
+					<form method = 'POST' action = "{{url_for('addActivity', user_id = user_id)}}">
+						New Activity: <input type = "text" size="60" name = "name" placeholder= "New Activity"><br>
+						<input type = "submit" value = "Add!">
+					</form>
+					<br>
+					<p>Check the list below to make sure the activity you would like
+						to add is not already on the list.</p>
+					<ul>
+						{% for a in activities%}
+						<li>{{a.name}}</li>
+						{%endfor%}
+					</ul>
+				</div>
+				<div class = "col-md-2"></div><br>
+				<div class = "spacer"><a href="#">Cancel</a></div>
+			</div>	
+		</div> <!--end of container-->
+	</body>
+</html>

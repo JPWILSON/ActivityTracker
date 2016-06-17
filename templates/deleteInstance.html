@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "eng">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = "viewport"content = "width=device-width, initial-scale = 1.0">
+		<title>Delete Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/styles.css')}}">
+	</head>
+	<body>
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+						<img class="img-responsive" alt="logo"
+						src="{{url_for('static', filename='images/logImage.jpg')}}">
+					</a>
+				</div>
+				<div class="col-md-6">
+					<h1 class="text-right large-heading">Deletion</h1>
+				</div>
+			</div><!-- end of row -->
+			<div class = "row"><hr></div><!-- end of row -->
+			<div class = "row main_section">
+				<div class = "spacer"></div>
+				<div class= "col-md-4"><b>Item to be deleted: </b>
+					<p>{{item.description}}</p>
+				</div>
+				<div class= "col-md-4">
+					<form method = 'POST' action= "{{url_for('deleteActivityInstance', user_id = user_id, instance_id = instance_id)}}">
+						<b>Are you sure you want to delete this item?</b><br>
+						<input type = 'submit' value ='Delete!'>
+					</form>
+				</div>
+				<div class= "col-md-4">
+					<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				</div>
+				<div class = "spacer"></div>
+				</div><!-- end of row -->
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 linkSize">
+					<a href="#">
+					Cancel</a> and return to menu
+				</div>
+				<div class="col-md-4"></div>
+				<div class = "spacer"></div>
+			</div>
+		</div><!-- end of container-->
+	</body>
+</html>

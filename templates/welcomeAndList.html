@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv= "X-UA-Compatible" content= "IE-Edge">
+		<meta name = "viewport" content= "width=device-width, initial-scale=1">
+		<title>Restaurant List</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class= "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+						<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1 class= "text-right"> Welcome, {{name}} </h1>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+			<div class= " row main_section">
+			<div class = "row"><hr></div>
+			<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				<div class = "row">
+					<div class = "col-md-1"></div>
+					<div class = "col-md-10">
+						<h2>{{name}}:</h2>
+						<h3>These are your activities</h3>
+						<table class="text-left">
+							<tr>
+								<th>Date</th>
+								<th>Description</th>
+								<th>Event ID</th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+								{% for d in descr%}
+							<tr>
+								<td width="15%">{{d.date}}</td>							
+								<td width="51%">{{d.description}}</td>
+								<td width="10%">{{d.id}}</td>
+								<td width="8%"><a href="{{url_for('activityPage', instance_id = d.id)}}">&nbspView&nbsp</a></td>
+								<td width="8%"><a href="{{url_for('editActivityInstance', instance_id = d.id, user_id = user_id)}}">&nbspEdit&nbsp</a></td>
+								<td width="8%"><a href="{{url_for('deleteActivityInstance', instance_id = d.id, user_id = user_id)}}">&nbspDelete&nbsp</a></td>
+							</tr>
+								{%endfor%}
+						</table>
+					</div>
+					<div class = "col-md-1"></div>
+				</div>
+				<div class = "row"><hr></div>
+				<div class = "row text-center">
+					<div class = "col-md-4">
+						<a href="#" class = "btn btn-info" role = "button">Order By</a>
+					</div>
+					<div class = "col-md-4">
+						<a href="{{url_for('addActivityInstance', user_id = user_id)}}" class = "btn btn-info" role = "button">Add Event</a>
+					</div>
+					<div class = "col-md-4">
+						<a href="#" class = "btn btn-info" role = "button">Sign Out</a>
+					</div>
+				</div>
+			</div>
+		</div> <!-- container-->
+	</body>
+</html>

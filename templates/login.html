@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv= "X-UA-Compatible" content= "IE-Edge">
+		<meta name = "viewport" content= "width=devicewidth, initial-scale=1">
+		<title>Welcome Unregistered User</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  		<script src="//apis.google.com/js/platform.js?onload=start"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		<div class= "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+						<img class= "img-responsive" src="{{ url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1 class= "text-right large_heading">Welcome</h1>
+				</div>
+			</div>
+			<div class = "row"><hr></div>
+			<div class = "row main_section">
+				<div class= "col-md-2"></div>
+				<div class="col-md-8">
+					<h2>To the login page</h2><br>
+					Don't really need a whole page for this, but still figuring out front-end basics....should have done that front-end nanodegree first.
+				</div>
+			<div class= "col-md-2"></div>
+			<div class = "row"><hr></div>
+			<div class = "row">
+						<div class= "col-md-4"></div>
+						<div class= "col-md-4 text-center">
+					<!-- This is where the Google OAuth starts!-->
+					<div id="signInButton">
+		          		<span class="g-signin"
+				            data-scope="openid email"
+				            data-clientid="100623852523-e0t3ipk6svinm9i9ib3vu6g8edkh66p7.apps.googleusercontent.com"
+				            data-redirecturi="postmessage" 
+				            data-accesstype="offline"
+				            data-cookiepolicy="single_host_origin"
+				            data-callback="signInCallback"
+				            data-approvalprompt="force"> 
+		          		</span>
+		        	</div>
+
+		        	<div id="result"></div>
+
+					<script>
+					function signInCallback(authResult) {
+					  if (authResult['code']) {
+					    // Hide the sign-in button now that the user is authorized
+					    $('#signinButton').attr('style', 'display: none');
+					    // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+					    $.ajax({
+					      type: 'POST',
+					      url: '/gconnect?state={{STATE}}',
+					      processData: false,
+					      data: authResult['code'],
+					      contentType: 'application/octet-stream; charset=utf-8',
+					      success: function(result) {
+					        // Handle or verify the server response if necessary.
+					        if (result) {
+					          $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+					         setTimeout(function() {
+					          window.location.href = "/users";
+					         }, 4000);
+					          
+					      } else if (authResult['error']) {
+					    console.log('There was an error: ' + authResult['error']);
+					  } else {
+					        $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+					         }
+					      }
+					      
+					  }); } }
+					</script>
+
+
+
+		        	<!-- This is where the Google OAuth ends!-->
+		        	</div>
+        	</div>
+        	<div class= "col-md-4"></div>
+		</div> <!-- container-->
+	</body>
+</html>

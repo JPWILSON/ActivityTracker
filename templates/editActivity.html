@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+		<title>Edit Item</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+	</head>
+	<body>
+		<div class= "container">
+			<div class = "row">
+				<div class = "col-md-6">
+					<a href="{{url_for('welcome')}}">
+						<img class = "img-responsive" src="{{url_for('static', filename = 'images/logImage.jpg')}}" alt="logo">
+					</a>
+				</div>
+				<div class = "col-md-6">
+					<h1>
+						Activity Logger
+					</h1>
+				</div>
+			</div><!-- end of row -->
+			<div class = "row"><hr></div>
+			<div class = "row main_section">
+				<div class = "row text-right">
+						<a href="{{url_for('gdisconnect')}}" class = "btn btn-info" role = "button">Sign Out</a>
+			</div>
+				<form action = "{{url_for('editActivity', act_id = act_id, user_id = user_id)}}" method = "POST" >
+					<input type = "text" name = "name" size="30" placeholder="{{activity2Edit.name}}">
+					<input type = "submit" value = "Edit!">
+				</form>
+			</div><!-- end of row -->
+		</div> <!-- end of container-->
+	</body>
+</html>
