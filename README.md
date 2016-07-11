@@ -2,8 +2,8 @@ Event Logger - record and then view anything you or anyone else does or has done
 
 ##About
 
-This README details the way to use this activity tracker. The front-end design needs A LOT of work. 
-The focus was just to build a fully functinoal activity tracker. I will be improving the look, as time goes by.
+This README details the way to use this activity tracker. The front-end design needs a lot of work. 
+The focus was just to build a fully functional activity tracker. I will be improving the look, as time goes by.
 
 What is this activity tracker? It is a 
 project I built to develop my skills in database backed web applications. It is by no 
