@@ -1,6 +1,6 @@
 Event Logger - record and then view anything you or anyone else does or has done. 
 
-##About
+## About
 
 This README details the way to use this activity tracker. The front-end design needs a lot of work. 
 The focus was just to build a fully functional activity tracker. I will be improving the look, as time goes by.
@@ -20,7 +20,7 @@ activity, subactivity)). But only logged in people can add edit and delete. They
 perform crud on anyone's info though. (My reasoning is that this is how Wikipedia works, anyone has full CRUD functionality as long as signed in as they can then be tracked). In the end, the truth filters to the top. 
 
 
-##How To Use
+## How To Use
 
 1. Run database_setup.py with a python interpreter
 2. Run addActivitiesInstances.py with a python interpreter
@@ -31,14 +31,14 @@ you can add users and perform full CRUD.
 Signing in doesn't make you a user, you still need to add yourself (or you can add others like on Wikipedia, one can add other people). 
 
 
-##Contributing
+## Contributing
 
 I will load this on GitHub and then happily welcome anyone to provide any constructive 
 criticism of this project in particular, or my coding in general. I just want to get better. 
 (This updated submission is not yet updated to GITHub, rather, I will submit after grading of the project, in case there are further errors.)
 
 
-##License
+## License
 
 tl;dr - The MIT License (MIT)
 
@@ -48,7 +48,7 @@ know what, or who on earth thinks they can dictate what my mind is allowed to kn
 So, take this and use it, and any other code I write. 
 
 
-##Add Later
+## Add Later
 
 This is still a tiny little repository, but as it grows I intend to add:
 -FAQ
