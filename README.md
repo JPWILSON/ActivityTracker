@@ -1,4 +1,5 @@
-Event Logger - record and then view anything you or anyone else does or has done. 
+Activity/ Event Logger - a web app to record and then view anything you or anyone else does or has done. 
+[Link](http://ec2-54-157-225-246.compute-1.amazonaws.com "Activity Logger on Amazon Lightsail") to the site. 
 
 ## About
 
